@@ -1,0 +1,112 @@
+{
+  "simulation": {
+    "solver": "MuJoCo 3.9.0",
+    "integrator": "implicit Euler",
+    "timestep_ms": 2.0,
+    "duration_s": 20.0,
+    "steady_state_discard_s": 2.0,
+    "gravity": "0, 0, -9.81 m/s^2"
+  },
+  "contact_model": {
+    "floor_friction": [
+      1.0,
+      0.005,
+      0.001
+    ],
+    "leg_friction": [
+      1.5,
+      0.01,
+      0.01
+    ],
+    "body_friction": [
+      0.8,
+      0.01,
+      0.01
+    ],
+    "leg_condim": 4,
+    "body_condim": 3,
+    "nconmax": "200 (S/F), 800 (C)"
+  },
+  "body_material": {
+    "description": "Dragon Skin 10 NV analogue (platinum-cure silicone)",
+    "density_kg_m3": 1100,
+    "segment_geometry": "capsule",
+    "body_radius_mm": 6.0,
+    "spine_joint_range_rad": "[-0.15, 0.15]",
+    "spine_damping": 0.015,
+    "spine_stiffness": 0.08
+  },
+  "leg_material": {
+    "description": "Dragon Skin 30 analogue (stiffer silicone)",
+    "density_kg_m3": 1100,
+    "leg_radius_mm": 3.0,
+    "leg_length_mm": 18.0,
+    "joint_type": "hinge (pitch axis)",
+    "joint_range_rad": "[-0.3, 0.8]",
+    "leg_damping": 0.005,
+    "leg_stiffness": 0.02
+  },
+  "pneumatic_actuator": {
+    "type": "general (MuJoCo)",
+    "gain": 0.009,
+    "bias": [
+      0,
+      -0.009,
+      0
+    ],
+    "dynamics": "first-order filter",
+    "time_constant_s": 0.06,
+    "ctrl_range": [
+      0,
+      1
+    ],
+    "description": "Binary solenoid valve model with 60ms pneumatic delay"
+  },
+  "cpg": {
+    "type": "Kuramoto-coupled phase oscillators",
+    "coupling_gain_K": 2.0,
+    "valve_duty_cycle": 0.4,
+    "default_frequency_hz": 0.8,
+    "wave_type": "anterior-to-posterior metachronal",
+    "phase_offset_formula": "pi / n_valves"
+  },
+  "variants": {
+    "HALLU-S": {
+      "species": "H. sparsa",
+      "n_leg_pairs": 7,
+      "n_valve_groups": 7,
+      "body_length_mm": 120,
+      "segment_length_mm": 15.0,
+      "n_segments": 8,
+      "mass_g": 32.2,
+      "phase_offset_deg": 25.7
+    },
+    "HALLU-F": {
+      "species": "H. fortis",
+      "n_leg_pairs": 9,
+      "n_valve_groups": 9,
+      "body_length_mm": 150,
+      "segment_length_mm": 15.0,
+      "n_segments": 10,
+      "mass_g": 40.9,
+      "phase_offset_deg": 20.0
+    },
+    "HALLU-C": {
+      "species": "Carbotubulus",
+      "n_leg_pairs": 25,
+      "n_valve_groups": 8,
+      "valve_zone_mapping": "3-3-3-3-3-3-3-4 legs per zone",
+      "body_length_mm": 300,
+      "segment_length_mm": 11.5,
+      "n_segments": 26,
+      "mass_g": 72.4,
+      "phase_offset_deg": 22.5
+    }
+  },
+  "sensors": [
+    "IMU (framepos, framequat)",
+    "gyroscope",
+    "accelerometer",
+    "framelinvel"
+  ]
+}

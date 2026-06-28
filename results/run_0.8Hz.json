@@ -1,0 +1,13 @@
+{
+  "displacement_m": 0.21806168950467286,
+  "elapsed_s": 17.96,
+  "mean_speed_m_s": 0.02753880389261132,
+  "mean_speed_mm_s": 27.53880389261132,
+  "displacement_speed_m_s": 0.012141519460171094,
+  "mean_heading_rad": -2.1803148821336967e-17,
+  "heading_std_rad": 6.237245383484022e-17,
+  "straightness": 0.4509834381818481,
+  "cost_of_transport": 517.2480840510343,
+  "step_count": 17.0,
+  "step_length_mm": 12.827158206157227
+}

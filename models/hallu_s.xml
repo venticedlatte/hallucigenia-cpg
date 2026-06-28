@@ -1,0 +1,203 @@
+<!-- HALLUCIGENIA HALLU-S (H. sparsa) MuJoCo Model
+     7 leg-pairs, jointless pneumatic lobopod walking
+     Body: flexible segmented tube (Dragon Skin 10 analogue)
+     Legs: stiffer actuated members (Dragon Skin 30 analogue)
+
+     Ref: Smith & Ortega-Hernandez 2014 Nature 514 (Hallucigenia)
+          Manton 1950 J Linnean Soc (Peripatus locomotion)
+
+     Carmen Mitchell / FAUNA -->
+<mujoco model="hallu_s">
+  <compiler angle="radian" autolimits="true"/>
+
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="implicit">
+    <flag contact="enable"/>
+  </option>
+
+  <size nconmax="200" njmax="400"/>
+
+  <default>
+    <default class="body_joint">
+      <joint type="hinge" damping="0.015" stiffness="0.08" limited="true"
+             range="-0.15 0.15"/>
+    </default>
+    <!-- lobopod legs: pitch axis (0 1 0) so legs swing fore/aft -->
+    <default class="leg_joint">
+      <joint type="hinge" axis="0 1 0" damping="0.005" stiffness="0.02"
+             limited="true" range="-0.3 0.8"/>
+    </default>
+    <default class="leg_geom">
+      <geom type="capsule" size="0.003" rgba="0.85 0.75 0.65 0.9"
+            density="1100" friction="1.5 0.01 0.01" condim="4"
+            contype="1" conaffinity="1"/>
+    </default>
+    <default class="body_geom">
+      <geom type="capsule" rgba="0.9 0.8 0.7 0.85"
+            density="1100" friction="0.8 0.01 0.01" condim="3"
+            contype="1" conaffinity="1"/>
+    </default>
+    <default class="spine_geom">
+      <geom type="capsule" size="0.001 0.008" rgba="0.95 0.5 0.9 0.7"
+            contype="0" conaffinity="0"/>
+    </default>
+    <default class="pneumatic">
+      <general gainprm="0.009" biasprm="0 -0.009 0" dyntype="filter" dynprm="0.06"/>
+    </default>
+  </default>
+
+  <asset>
+    <texture name="ground" type="2d" builtin="checker" width="512" height="512"
+             rgb1="0.6 0.55 0.5" rgb2="0.5 0.45 0.4"/>
+    <material name="ground_mat" texture="ground" texrepeat="8 8"/>
+  </asset>
+
+  <worldbody>
+    <geom name="floor" type="plane" size="2 2 0.01" material="ground_mat"
+          contype="1" conaffinity="1" friction="1.0 0.005 0.001"/>
+
+    <!-- HALLU-S: head + 7 leg-bearing segments, ~120mm total -->
+    <body name="head" pos="0 0 0.025">
+      <freejoint name="root"/>
+      <geom class="body_geom" fromto="0 0 0 0.015 0 0" size="0.006"/>
+      <geom class="spine_geom" pos="0.0075 0 0.006" euler="0 0.3 0"/>
+      <site name="imu" pos="0.0075 0 0" size="0.002"/>
+
+      <!-- seg1 -->
+      <body name="seg1" pos="0.015 0 0">
+        <joint class="body_joint" name="spine_1" axis="0 1 0"/>
+        <joint class="body_joint" name="yaw_1" axis="0 0 1"/>
+        <geom class="body_geom" fromto="0 0 0 0.015 0 0" size="0.006"/>
+        <geom class="spine_geom" pos="0.0075 0 0.006" euler="0 0.3 0"/>
+        <body name="leg_1L" pos="0.0075 0.006 -0.003">
+          <joint class="leg_joint" name="leg_1L_j"/>
+          <geom class="leg_geom" fromto="0 0 0 -0.004 0.003 -0.018"/>
+        </body>
+        <body name="leg_1R" pos="0.0075 -0.006 -0.003">
+          <joint class="leg_joint" name="leg_1R_j"/>
+          <geom class="leg_geom" fromto="0 0 0 -0.004 -0.003 -0.018"/>
+        </body>
+
+        <!-- seg2 -->
+        <body name="seg2" pos="0.015 0 0">
+          <joint class="body_joint" name="spine_2" axis="0 1 0"/>
+          <joint class="body_joint" name="yaw_2" axis="0 0 1"/>
+          <geom class="body_geom" fromto="0 0 0 0.015 0 0" size="0.006"/>
+          <geom class="spine_geom" pos="0.0075 0 0.006" euler="0 0.3 0"/>
+          <body name="leg_2L" pos="0.0075 0.006 -0.003">
+            <joint class="leg_joint" name="leg_2L_j"/>
+            <geom class="leg_geom" fromto="0 0 0 -0.004 0.003 -0.018"/>
+          </body>
+          <body name="leg_2R" pos="0.0075 -0.006 -0.003">
+            <joint class="leg_joint" name="leg_2R_j"/>
+            <geom class="leg_geom" fromto="0 0 0 -0.004 -0.003 -0.018"/>
+          </body>
+
+          <!-- seg3 -->
+          <body name="seg3" pos="0.015 0 0">
+            <joint class="body_joint" name="spine_3" axis="0 1 0"/>
+            <joint class="body_joint" name="yaw_3" axis="0 0 1"/>
+            <geom class="body_geom" fromto="0 0 0 0.015 0 0" size="0.006"/>
+            <geom class="spine_geom" pos="0.0075 0 0.006" euler="0 0.3 0"/>
+            <body name="leg_3L" pos="0.0075 0.006 -0.003">
+              <joint class="leg_joint" name="leg_3L_j"/>
+              <geom class="leg_geom" fromto="0 0 0 -0.004 0.003 -0.018"/>
+            </body>
+            <body name="leg_3R" pos="0.0075 -0.006 -0.003">
+              <joint class="leg_joint" name="leg_3R_j"/>
+              <geom class="leg_geom" fromto="0 0 0 -0.004 -0.003 -0.018"/>
+            </body>
+
+            <!-- seg4 -->
+            <body name="seg4" pos="0.015 0 0">
+              <joint class="body_joint" name="spine_4" axis="0 1 0"/>
+              <joint class="body_joint" name="yaw_4" axis="0 0 1"/>
+              <geom class="body_geom" fromto="0 0 0 0.015 0 0" size="0.006"/>
+              <geom class="spine_geom" pos="0.0075 0 0.006" euler="0 0.3 0"/>
+              <body name="leg_4L" pos="0.0075 0.006 -0.003">
+                <joint class="leg_joint" name="leg_4L_j"/>
+                <geom class="leg_geom" fromto="0 0 0 -0.004 0.003 -0.018"/>
+              </body>
+              <body name="leg_4R" pos="0.0075 -0.006 -0.003">
+                <joint class="leg_joint" name="leg_4R_j"/>
+                <geom class="leg_geom" fromto="0 0 0 -0.004 -0.003 -0.018"/>
+              </body>
+
+              <!-- seg5 -->
+              <body name="seg5" pos="0.015 0 0">
+                <joint class="body_joint" name="spine_5" axis="0 1 0"/>
+                <joint class="body_joint" name="yaw_5" axis="0 0 1"/>
+                <geom class="body_geom" fromto="0 0 0 0.015 0 0" size="0.006"/>
+                <geom class="spine_geom" pos="0.0075 0 0.006" euler="0 0.3 0"/>
+                <body name="leg_5L" pos="0.0075 0.006 -0.003">
+                  <joint class="leg_joint" name="leg_5L_j"/>
+                  <geom class="leg_geom" fromto="0 0 0 -0.004 0.003 -0.018"/>
+                </body>
+                <body name="leg_5R" pos="0.0075 -0.006 -0.003">
+                  <joint class="leg_joint" name="leg_5R_j"/>
+                  <geom class="leg_geom" fromto="0 0 0 -0.004 -0.003 -0.018"/>
+                </body>
+
+                <!-- seg6 -->
+                <body name="seg6" pos="0.015 0 0">
+                  <joint class="body_joint" name="spine_6" axis="0 1 0"/>
+                  <joint class="body_joint" name="yaw_6" axis="0 0 1"/>
+                  <geom class="body_geom" fromto="0 0 0 0.015 0 0" size="0.006"/>
+                  <geom class="spine_geom" pos="0.0075 0 0.006" euler="0 0.3 0"/>
+                  <body name="leg_6L" pos="0.0075 0.006 -0.003">
+                    <joint class="leg_joint" name="leg_6L_j"/>
+                    <geom class="leg_geom" fromto="0 0 0 -0.004 0.003 -0.018"/>
+                  </body>
+                  <body name="leg_6R" pos="0.0075 -0.006 -0.003">
+                    <joint class="leg_joint" name="leg_6R_j"/>
+                    <geom class="leg_geom" fromto="0 0 0 -0.004 -0.003 -0.018"/>
+                  </body>
+
+                  <!-- seg7 / tail -->
+                  <body name="seg7" pos="0.015 0 0">
+                    <joint class="body_joint" name="spine_7" axis="0 1 0"/>
+                    <joint class="body_joint" name="yaw_7" axis="0 0 1"/>
+                    <geom class="body_geom" fromto="0 0 0 0.015 0 0" size="0.005"/>
+                    <geom class="spine_geom" pos="0.0075 0 0.006" euler="0 0.3 0"/>
+                    <body name="leg_7L" pos="0.0075 0.006 -0.003">
+                      <joint class="leg_joint" name="leg_7L_j"/>
+                      <geom class="leg_geom" fromto="0 0 0 -0.004 0.003 -0.018"/>
+                    </body>
+                    <body name="leg_7R" pos="0.0075 -0.006 -0.003">
+                      <joint class="leg_joint" name="leg_7R_j"/>
+                      <geom class="leg_geom" fromto="0 0 0 -0.004 -0.003 -0.018"/>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <general class="pneumatic" name="valve_1" joint="leg_1L_j" ctrlrange="0 1"/>
+    <general class="pneumatic" name="valve_1R" joint="leg_1R_j" ctrlrange="0 1"/>
+    <general class="pneumatic" name="valve_2" joint="leg_2L_j" ctrlrange="0 1"/>
+    <general class="pneumatic" name="valve_2R" joint="leg_2R_j" ctrlrange="0 1"/>
+    <general class="pneumatic" name="valve_3" joint="leg_3L_j" ctrlrange="0 1"/>
+    <general class="pneumatic" name="valve_3R" joint="leg_3R_j" ctrlrange="0 1"/>
+    <general class="pneumatic" name="valve_4" joint="leg_4L_j" ctrlrange="0 1"/>
+    <general class="pneumatic" name="valve_4R" joint="leg_4R_j" ctrlrange="0 1"/>
+    <general class="pneumatic" name="valve_5" joint="leg_5L_j" ctrlrange="0 1"/>
+    <general class="pneumatic" name="valve_5R" joint="leg_5R_j" ctrlrange="0 1"/>
+    <general class="pneumatic" name="valve_6" joint="leg_6L_j" ctrlrange="0 1"/>
+    <general class="pneumatic" name="valve_6R" joint="leg_6R_j" ctrlrange="0 1"/>
+    <general class="pneumatic" name="valve_7" joint="leg_7L_j" ctrlrange="0 1"/>
+    <general class="pneumatic" name="valve_7R" joint="leg_7R_j" ctrlrange="0 1"/>
+  </actuator>
+
+  <sensor>
+    <framepos name="head_pos" objtype="site" objname="imu"/>
+    <framequat name="head_quat" objtype="site" objname="imu"/>
+    <framelinvel name="head_vel" objtype="site" objname="imu"/>
+    <gyro name="gyro" site="imu"/>
+    <accelerometer name="accel" site="imu"/>
+  </sensor>
+</mujoco>

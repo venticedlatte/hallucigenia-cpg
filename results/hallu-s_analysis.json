@@ -1,0 +1,39 @@
+{
+  "variant": "S",
+  "name": "HALLU-S",
+  "species": "H. sparsa",
+  "n_pairs": 7,
+  "n_valves": 7,
+  "phase_lag": {
+    "target_lag_deg": -25.714285714285715,
+    "mean_lag_deg": -23.167323189798974,
+    "std_lag_deg": 0.7126642960324521,
+    "rmse_deg": 2.6447889329735386,
+    "per_pair_deg": [
+      -23.882292405893345,
+      -22.88551476276866,
+      -22.360162005995253,
+      -22.4429784618846,
+      -23.13452497960779,
+      -24.298466522644183
+    ],
+    "wave_direction": "anterior-to-posterior"
+  },
+  "energy": {
+    "mass_g": 32.21314236098864,
+    "body_length_mm": 120,
+    "displacement_speed_mm_s": 15.108629442135504,
+    "mean_speed_mm_s": 29.321275946656165,
+    "mean_ctrl_effort": 5.639599555061179,
+    "cot_normalized": 1181.1936365081679,
+    "specific_resistance": 11587.50957414513,
+    "froude_number": 0.00019390985696548062
+  },
+  "locomotion": {
+    "displacement_mm": 271.35098478075366,
+    "mean_speed_mm_s": 29.67851008856399,
+    "step_count": 17,
+    "step_length_mm": 15.96182263416198,
+    "straightness": 0.5152787167114563
+  }
+}

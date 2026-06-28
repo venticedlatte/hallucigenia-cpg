@@ -1,0 +1,41 @@
+{
+  "variant": "F",
+  "name": "HALLU-F",
+  "species": "H. fortis",
+  "n_pairs": 9,
+  "n_valves": 9,
+  "phase_lag": {
+    "target_lag_deg": -20.0,
+    "mean_lag_deg": -15.43613654487807,
+    "std_lag_deg": 1.4991170475862041,
+    "rmse_deg": 4.803769515636766,
+    "per_pair_deg": [
+      -17.439623838182808,
+      -15.693068815811749,
+      -14.39040390839103,
+      -13.714593166206294,
+      -13.77608193701755,
+      -14.576812870491066,
+      -16.008960156189687,
+      -17.889547666734366
+    ],
+    "wave_direction": "anterior-to-posterior"
+  },
+  "energy": {
+    "mass_g": 40.866520208292194,
+    "body_length_mm": 150,
+    "displacement_speed_mm_s": 11.743828661666818,
+    "mean_speed_mm_s": 31.907450920539898,
+    "mean_ctrl_effort": 7.25027808676307,
+    "cot_normalized": 1539.9559266896474,
+    "specific_resistance": 15106.967640825442,
+    "froude_number": 9.372579791681078e-05
+  },
+  "locomotion": {
+    "displacement_mm": 210.91916276353606,
+    "mean_speed_mm_s": 32.539847137031906,
+    "step_count": 17,
+    "step_length_mm": 12.40700957432565,
+    "straightness": 0.36805913110742805
+  }
+}

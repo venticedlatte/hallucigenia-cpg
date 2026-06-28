@@ -1,0 +1,40 @@
+{
+  "variant": "C",
+  "name": "HALLU-C",
+  "species": "Carbotubulus",
+  "n_pairs": 25,
+  "n_valves": 8,
+  "phase_lag": {
+    "target_lag_deg": -22.5,
+    "mean_lag_deg": -18.94867029868146,
+    "std_lag_deg": 1.0921239341145177,
+    "rmse_deg": 3.715464618985492,
+    "per_pair_deg": [
+      -20.26680510825691,
+      -18.863829874043613,
+      -17.932891085992534,
+      -17.64744597615706,
+      -18.075587531110813,
+      -19.151604276579814,
+      -20.702528238629466
+    ],
+    "wave_direction": "anterior-to-posterior"
+  },
+  "energy": {
+    "mass_g": 72.39220293107199,
+    "body_length_mm": 300,
+    "displacement_speed_mm_s": 13.407201765742817,
+    "mean_speed_mm_s": 36.159685684760895,
+    "mean_ctrl_effort": 20.11790878754171,
+    "cot_normalized": 2112.9240655117596,
+    "specific_resistance": 20727.78508267036,
+    "froude_number": 6.107817165726718e-05
+  },
+  "locomotion": {
+    "displacement_mm": 240.793343712741,
+    "mean_speed_mm_s": 36.48603281212953,
+    "step_count": 17,
+    "step_length_mm": 14.164314336043589,
+    "straightness": 0.37077760804190646
+  }
+}

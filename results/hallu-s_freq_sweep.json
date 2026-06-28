@@ -1,0 +1,90 @@
+[
+  {
+    "freq_hz": 0.4,
+    "mean_speed_mm_s": 22.968299342503133,
+    "std_speed_mm_s": 0.17463246740295307,
+    "step_length_mm": 30.182588905694775,
+    "std_step_mm": 0.16973633729418638,
+    "straightness": 0.6712952945695562,
+    "std_straightness": 0.0017582631664554722,
+    "cost_of_transport": 427.68366598087295,
+    "std_cot": 2.5814154997353884
+  },
+  {
+    "freq_hz": 0.6,
+    "mean_speed_mm_s": 24.81273164871946,
+    "std_speed_mm_s": 0.05238311360173797,
+    "step_length_mm": 19.18887946582184,
+    "std_step_mm": 0.1374927266720057,
+    "straightness": 0.5740960546188373,
+    "std_straightness": 0.0023384120895118717,
+    "cost_of_transport": 438.3290078124133,
+    "std_cot": 4.084129458016619
+  },
+  {
+    "freq_hz": 0.8,
+    "mean_speed_mm_s": 30.118200604480645,
+    "std_speed_mm_s": 0.21267978110857447,
+    "step_length_mm": 15.890668313318011,
+    "std_step_mm": 0.15995483880221248,
+    "straightness": 0.5101879517985156,
+    "std_straightness": 0.002801133453796037,
+    "cost_of_transport": 417.2447043004474,
+    "std_cot": 4.440742030183149
+  },
+  {
+    "freq_hz": 1.0,
+    "mean_speed_mm_s": 34.63650673664372,
+    "std_speed_mm_s": 0.2901272330687526,
+    "step_length_mm": 13.994498731996126,
+    "std_step_mm": 0.2850506509133657,
+    "straightness": 0.48256608825173747,
+    "std_straightness": 0.010293142633221827,
+    "cost_of_transport": 382.8456690543572,
+    "std_cot": 7.800960667832787
+  },
+  {
+    "freq_hz": 1.2,
+    "mean_speed_mm_s": 38.52415976827337,
+    "std_speed_mm_s": 0.2655846415683692,
+    "step_length_mm": 13.924402599865045,
+    "std_step_mm": 0.35208907335955403,
+    "straightness": 0.5141835614060017,
+    "std_straightness": 0.009855733316776758,
+    "cost_of_transport": 320.64137711639086,
+    "std_cot": 8.236062700775006
+  },
+  {
+    "freq_hz": 1.5,
+    "mean_speed_mm_s": 50.60996595308614,
+    "std_speed_mm_s": 0.5660597054962057,
+    "step_length_mm": 13.705891504871454,
+    "std_step_mm": 0.37779651789590757,
+    "straightness": 0.473854989309992,
+    "std_straightness": 0.010718253628588956,
+    "cost_of_transport": 265.07834175116204,
+    "std_cot": 7.461757628112432
+  },
+  {
+    "freq_hz": 2.0,
+    "mean_speed_mm_s": 81.46815394880672,
+    "std_speed_mm_s": 0.4193561404657025,
+    "step_length_mm": 19.23846438212217,
+    "std_step_mm": 0.10172908825355796,
+    "straightness": 0.5449466059404201,
+    "std_straightness": 0.0010599087742527453,
+    "cost_of_transport": 142.24853035051567,
+    "std_cot": 0.875296640741548
+  },
+  {
+    "freq_hz": 2.5,
+    "mean_speed_mm_s": 96.93931513406544,
+    "std_speed_mm_s": 0.21692589568959306,
+    "step_length_mm": 18.76763376914052,
+    "std_step_mm": 0.1361900117194617,
+    "straightness": 0.5568746250464478,
+    "std_straightness": 0.003198087449334873,
+    "cost_of_transport": 117.28983090092844,
+    "std_cot": 0.8382528200748494
+  }
+]

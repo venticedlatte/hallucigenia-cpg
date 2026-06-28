@@ -1,0 +1,32 @@
+[
+  {
+    "turn_duty": 0.1,
+    "heading_change_deg": 55.92628481527688,
+    "turn_rate_deg_s": 3.7333968501519945,
+    "speed_mm_s": 31.857018914753795
+  },
+  {
+    "turn_duty": 0.15,
+    "heading_change_deg": 26.154749878777377,
+    "turn_rate_deg_s": 1.7459779625352054,
+    "speed_mm_s": 32.167038673902745
+  },
+  {
+    "turn_duty": 0.2,
+    "heading_change_deg": 19.56825180678923,
+    "turn_rate_deg_s": 1.3062918429098285,
+    "speed_mm_s": 32.079849517238515
+  },
+  {
+    "turn_duty": 0.25,
+    "heading_change_deg": 11.88209490628962,
+    "turn_rate_deg_s": 0.7931972567616568,
+    "speed_mm_s": 31.683728316163812
+  },
+  {
+    "turn_duty": 0.3,
+    "heading_change_deg": 6.828085156262087,
+    "turn_rate_deg_s": 0.4558134283219016,
+    "speed_mm_s": 31.20101196674855
+  }
+]
